@@ -1,4 +1,6 @@
 
 export default function Landing(){
-    return <main id="landing"></main>
+    return <main id="landing">
+        Eloi eloi unataka namna gani
+    </main>
 }
