@@ -9,7 +9,6 @@ export default function Landing() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    setIsLoading(true)
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
@@ -22,7 +21,6 @@ export default function Landing() {
         phone,
       }),
     }).then(r => {
-      setIsLoading(false)
       if (r.ok) {
         r.json().then(user => {
           onLogin(user)
@@ -44,7 +42,7 @@ export default function Landing() {
 
   return (
     <main id="landing">
-      <form id="user">
+      <form id="user" onSubmit={handleSubmit}>
         <span>Create User</span>
         <input
           type="email"
