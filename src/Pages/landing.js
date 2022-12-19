@@ -7,7 +7,40 @@ export default function Landing() {
   let [amount, setAmount] = useState('')
   let [phone, setPhone] = useState('')
 
-  function handleSubmit() {}
+  function handleSubmit(e) {
+    e.preventDefault()
+    setIsLoading(true)
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        username,
+        amount,
+        phone,
+      }),
+    }).then(r => {
+      setIsLoading(false)
+      if (r.ok) {
+        r.json().then(user => {
+          onLogin(user)
+          console.log('success', user)
+          setUsername('')
+          setEmail('')
+          setPassword('')
+          setPasswordConfirmation('')
+          navigate('/redirect')
+        })
+      } else {
+        r.json().then(err => {
+          setErrors(err.errors)
+          console.log(errors)
+        })
+      }
+    })
+  }
 
   return (
     <main id="landing">
