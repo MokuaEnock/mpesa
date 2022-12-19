@@ -1,5 +1,4 @@
 import useUpdatingClock from 'hooks/useUpdatingClock'
-
 import Landing from '../Pages/landing'
 export default function App() {
   const {hour, minutes, seconds, amPm} = useUpdatingClock()
