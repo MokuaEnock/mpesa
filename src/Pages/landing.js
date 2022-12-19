@@ -9,6 +9,8 @@ export default function Landing() {
         <input type="text" placeholder="Username" />
         <input type="number" placeholder="Total Amount" />
         <input type="number" placeholder="Phone number" />
+
+        <button type="submit">Submit</button>
       </form>
 
       {/* <form id="">

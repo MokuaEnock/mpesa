@@ -17,4 +17,5 @@ form {
   background-color: aliceblue;
   align-items: center;
   justify-content: space-evenly;
+  border: thin solid black;
 }
