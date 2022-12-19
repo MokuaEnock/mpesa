@@ -30,7 +30,7 @@ input {
 }
 
 input:focus {
-  outline: thin solid black;
+  outline: thin solid transparent;
 }
 
 button {

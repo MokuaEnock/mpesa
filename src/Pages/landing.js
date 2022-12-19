@@ -1,6 +1,12 @@
 import './landing.css'
+import {useState} from 'react'
 
 export default function Landing() {
+  let [email, setEmail] = useState('')
+  let [username, setUsername] = useState('')
+  let [amount, setAmount] = useState('')
+  let [phone, setPhone] = useState('')
+
   return (
     <main id="landing">
       <form id="user">
