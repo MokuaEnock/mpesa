@@ -6,10 +6,11 @@ export default function Landing() {
   let [username, setUsername] = useState('')
   let [amount, setAmount] = useState('')
   let [phone, setPhone] = useState('')
+  let [errors, setErrors] = useState([])
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('http://localhost:3000/users', {
+    fetch('https://sampleprod.up.railway.app/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -22,17 +23,18 @@ export default function Landing() {
       }),
     }).then(r => {
       if (r.ok) {
-        r.json().then(user => {
-          console.log('success', user)
+        r.json().then(err => {
+          setErrors(err.errors)
+          console.log('success', err)
         })
       } else {
         r.json().then(err => {
           console.log(err)
         })
+        console.log(errors)
       }
     })
   }
-
   return (
     <main id="landing">
       <form id="user" onSubmit={handleSubmit}>
@@ -64,11 +66,14 @@ export default function Landing() {
           value={phone}
           onChange={e => setPhone(e.target.value)}
         />
+        {/* <span>
+          {errors.map(err => (
+            <p key={err}>{err}</p>
+          ))}
+        </span> */}
 
         <button type="submit">Submit</button>
       </form>
-
-     
     </main>
   )
 }
