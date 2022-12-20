@@ -25,16 +25,10 @@ export default function Landing() {
         r.json().then(user => {
           onLogin(user)
           console.log('success', user)
-          setUsername('')
-          setEmail('')
-          setPassword('')
-          setPasswordConfirmation('')
-          navigate('/redirect')
         })
       } else {
         r.json().then(err => {
-          setErrors(err.errors)
-          console.log(errors)
+          console.log(err)
         })
       }
     })
