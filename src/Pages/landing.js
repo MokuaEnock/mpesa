@@ -23,7 +23,6 @@ export default function Landing() {
     }).then(r => {
       if (r.ok) {
         r.json().then(user => {
-          onLogin(user)
           console.log('success', user)
         })
       } else {
