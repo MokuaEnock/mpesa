@@ -4,13 +4,13 @@ import {useState} from 'react'
 export default function Landing() {
   let [email, setEmail] = useState('')
   let [username, setUsername] = useState('')
-  let [amount, setAmount] = useState('')
+  let [total, setTotal] = useState('')
   let [phone, setPhone] = useState('')
   let [errors, setErrors] = useState([])
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('https://sampleprod.up.railway.app/users', {
+    fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export default function Landing() {
       body: JSON.stringify({
         email,
         username,
-        amount,
+        total,
         phone,
       }),
     }).then(r => {
@@ -56,8 +56,8 @@ export default function Landing() {
         <input
           type="number"
           placeholder="Total Amount"
-          value={amount}
-          onChange={e => setAmount(e.target.value)}
+          value={total}
+          onChange={e => setTotal(e.target.value)}
         />
 
         <input
