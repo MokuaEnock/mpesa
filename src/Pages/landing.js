@@ -10,7 +10,7 @@ export default function Landing() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('http://localhost:3000/users', {
+    fetch('https://pesa-production.up.railway.app/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
