@@ -116,9 +116,14 @@ export default function Landing() {
           type="number"
           placeholder="Number 1"
           value={numberA}
-          onChange={e => {}}
+          onChange={e => setNumberA(e.target.value)}
         />
-        <input type="number" placeholder="Number 2" />
+        <input
+          type="number"
+          placeholder="Number 2"
+          value={numberA}
+          onChange={e => setNumberA(e.target.value)}
+        />
         <button type="submit">Submit</button>
       </form>
     </main>
