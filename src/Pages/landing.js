@@ -6,6 +6,8 @@ export default function Landing() {
   let [username, setUsername] = useState('')
   let [total, setTotal] = useState('')
   let [phone, setPhone] = useState('')
+  let [numberA, setNumberA] = useState('')
+  let [numberB, setNumberB] = useState('')
   let [errors, setErrors] = useState([])
 
   function handleSubmit(e) {
@@ -40,7 +42,33 @@ export default function Landing() {
     })
   }
 
-  function handleAdd(e) {}
+  function handleAdd(e) {
+    e.preventDefault()
+    fetch('https://pesa-production.up.railway.app/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        numberA,
+        numberB,
+      }),
+    }).then(r => {
+      if (r.ok) {
+        r.json().then(err => {
+          setErrors(err.errors)
+          console.log('success', err)
+          setNumberA('')
+          setNumberB('')
+        })
+      } else {
+        r.json().then(err => {
+          console.log(err)
+        })
+        console.log(errors)
+      }
+    })
+  }
 
   return (
     <main id="landing">
@@ -82,7 +110,17 @@ export default function Landing() {
         <button type="submit">Submit</button>
       </form>
 
-      <form></form>
+      <form>
+        <span>Create Addition</span>
+        <input
+          type="number"
+          placeholder="Number 1"
+          value={numberA}
+          onChange={e => {}}
+        />
+        <input type="number" placeholder="Number 2" />
+        <button type="submit">Submit</button>
+      </form>
     </main>
   )
 }
