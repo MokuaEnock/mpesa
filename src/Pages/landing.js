@@ -101,11 +101,6 @@ export default function Landing() {
           value={phone}
           onChange={e => setPhone(e.target.value)}
         />
-        {/* <span>
-          {errors.map(err => (
-            <p key={err}>{err}</p>
-          ))}
-        </span> */}
 
         <button type="submit">Submit</button>
       </form>
