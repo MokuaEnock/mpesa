@@ -58,8 +58,8 @@ export default function Landing() {
         r.json().then(err => {
           setErrors(err.errors)
           console.log('success', err)
-          setNumberA('')
-          setNumberB('')
+          // setNumberA('')
+          // setNumberB('')
         })
       } else {
         r.json().then(err => {
@@ -116,8 +116,8 @@ export default function Landing() {
         <input
           type="number"
           placeholder="Number 2"
-          value={numberA}
-          onChange={e => setNumberA(e.target.value)}
+          value={numberB}
+          onChange={e => setNumberB(e.target.value)}
         />
         <button type="submit">Submit</button>
       </form>
