@@ -44,7 +44,7 @@ export default function Landing() {
 
   function handleAdd(e) {
     e.preventDefault()
-    fetch('http://localhost:8080/numbers', {
+    fetch('http://localhost:3000/numbers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -58,6 +58,8 @@ export default function Landing() {
         r.json().then(err => {
           setErrors(err.errors)
           console.log('success', err)
+          setNumberA('')
+          setNumberB('')
         })
       } else {
         r.json().then(err => {
