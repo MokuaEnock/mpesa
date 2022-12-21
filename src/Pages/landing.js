@@ -58,8 +58,6 @@ export default function Landing() {
         r.json().then(err => {
           setErrors(err.errors)
           console.log('success', err)
-          // setNumberA('')
-          // setNumberB('')
         })
       } else {
         r.json().then(err => {
@@ -105,7 +103,7 @@ export default function Landing() {
         <button type="submit">Submit</button>
       </form>
 
-      <form>
+      <form onSubmit={handleAdd}>
         <span>Create Addition</span>
         <input
           type="number"
