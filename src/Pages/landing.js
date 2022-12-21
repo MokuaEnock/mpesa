@@ -26,6 +26,10 @@ export default function Landing() {
         r.json().then(err => {
           setErrors(err.errors)
           console.log('success', err)
+          setEmail("")
+          setUsername("")
+          setTotal("")
+          setPhone("")
         })
       } else {
         r.json().then(err => {
