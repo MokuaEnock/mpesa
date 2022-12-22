@@ -12,7 +12,7 @@ export default function Landing() {
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('https://pesa-production.up.railway.app/users', {
+    fetch('https://pesaapi-production.up.railway.app/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export default function Landing() {
 
   function handleAdd(e) {
     e.preventDefault()
-    fetch('https://pesa-production.up.railway.app/numbers', {
+    fetch('https://pesaapi-production.up.railway.app/numbers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
