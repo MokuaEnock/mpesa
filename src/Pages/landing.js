@@ -44,7 +44,7 @@ export default function Landing() {
 
   function handleAdd(e) {
     e.preventDefault()
-    fetch('http://localhost:3000/numbers', {
+    fetch('https://pesa-production.up.railway.app/numbers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
