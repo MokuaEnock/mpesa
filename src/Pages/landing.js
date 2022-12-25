@@ -71,6 +71,23 @@ export default function Landing() {
   }
 
   function handlePay() {
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1 // Returns a zero-based month (0-11)
+    const day = date.getDate()
+    const hour = date.getHours()
+    const minutes = date.getMinutes()
+    const seconds = date.getSeconds()
+
+    function secss(x) {
+      if (x < 10) {
+        return `0${x}`
+      } else {
+        return `${x}`
+      }
+    }
+    let timestamp = `${year}${month}${day}${hour}${minutes}${secss(seconds)}`
+    
     let headers = new Headers()
     headers.append('Content-Type', 'application/json')
     headers.append('Authorization', 'Bearer GNAeMfYCpa3hZ0XLOC6RFEJHzaWf')
@@ -100,6 +117,7 @@ export default function Landing() {
 
   function getJob(e) {
     e.preventDefault()
+
     fetch(
       'https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=d0291057&app_key=e45310af6518f33ea0f2617638ff1d7f',
     )
