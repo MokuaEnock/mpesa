@@ -178,7 +178,7 @@ export default function Landing() {
         <button type="submit">Submit</button>
       </form>
 
-      <button onClick={logDate}>Click Me</button>
+      <button onClick={handlePay}>Click Me</button>
     </main>
   )
 }
