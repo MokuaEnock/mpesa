@@ -44,7 +44,7 @@ export default function Landing() {
 
   function handleAdd(e) {
     e.preventDefault()
-    fetch('https://pesaapi-production.up.railway.app/numbers', {
+    fetch('http://127.0.0.1:3000/numbers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -98,7 +98,8 @@ export default function Landing() {
       .catch(error => console.log(error))
   }
 
-  function getJob() {
+  function getJob(e) {
+    e.preventDefault()
     fetch(
       'https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=d0291057&app_key=e45310af6518f33ea0f2617638ff1d7f',
     )
@@ -106,7 +107,18 @@ export default function Landing() {
       .then(data => console.log(data))
       .catch(error => console.error(error))
   }
-  
+
+  function logDate() {
+    const date = new Date()
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1 // Returns a zero-based month (0-11)
+    const day = date.getDate()
+    const hour = date.getHours()
+    const minutes = date.getMinutes()
+    const seconds = date.getSeconds()
+    console.log(`${year}${month}${day}${hour}${minutes}${seconds}`)
+  }
+
   return (
     <main id="landing">
       <form id="user" onSubmit={handleSubmit}>
@@ -142,7 +154,7 @@ export default function Landing() {
         <button type="submit">Submit</button>
       </form>
 
-      <form onSubmit={(handleAdd, getJob)}>
+      <form onSubmit={(getJob, handleAdd)}>
         <span>Create Addition</span>
         <input
           type="number"
@@ -158,6 +170,8 @@ export default function Landing() {
         />
         <button type="submit">Submit</button>
       </form>
+
+      <button onClick={logDate}>Click Me</button>
     </main>
   )
 }
