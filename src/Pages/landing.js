@@ -86,8 +86,8 @@ export default function Landing() {
         return `${x}`
       }
     }
-    let timestamp = `${year}${month}${day}${hour}${minutes}${secss(seconds)}`
-    
+    let timestamped = `${year}${month}${day}${hour}${minutes}${secss(seconds)}`
+
     let headers = new Headers()
     headers.append('Content-Type', 'application/json')
     headers.append('Authorization', 'Bearer GNAeMfYCpa3hZ0XLOC6RFEJHzaWf')
@@ -99,7 +99,7 @@ export default function Landing() {
         BusinessShortCode: 174379,
         Password:
           'MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjIxMjI1MjAzODA3',
-        Timestamp: '20221225203807',
+        Timestamp: timestamped,
         TransactionType: 'CustomerPayBillOnline',
         Amount: 1,
         PartyA: 254717594017,
@@ -124,25 +124,6 @@ export default function Landing() {
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error(error))
-  }
-
-  function logDate() {
-    const date = new Date()
-    const year = date.getFullYear()
-    const month = date.getMonth() + 1 // Returns a zero-based month (0-11)
-    const day = date.getDate()
-    const hour = date.getHours()
-    const minutes = date.getMinutes()
-    const seconds = date.getSeconds()
-
-    function secss(x) {
-      if (x < 10) {
-        return `0${x}`
-      } else {
-        return `${x}`
-      }
-    }
-    let timestamp = `${year}${month}${day}${hour}${minutes}${secss(seconds)}`
   }
 
   return (
