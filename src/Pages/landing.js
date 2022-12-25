@@ -116,7 +116,15 @@ export default function Landing() {
     const hour = date.getHours()
     const minutes = date.getMinutes()
     const seconds = date.getSeconds()
-    console.log(`${year}${month}${day}${hour}${minutes}${seconds}`)
+
+    function secss(x) {
+      if (x < 10) {
+        return `0${x}`
+      } else {
+        return `${x}`
+      }
+    }
+    let timestamp = `${year}${month}${day}${hour}${minutes}${secss(seconds)}`
   }
 
   return (
