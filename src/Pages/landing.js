@@ -98,6 +98,15 @@ export default function Landing() {
       .catch(error => console.log(error))
   }
 
+  function getJob() {
+    fetch(
+      'https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=d0291057&app_key=e45310af6518f33ea0f2617638ff1d7f',
+    )
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error))
+  }
+  
   return (
     <main id="landing">
       <form id="user" onSubmit={handleSubmit}>
@@ -133,7 +142,7 @@ export default function Landing() {
         <button type="submit">Submit</button>
       </form>
 
-      <form onSubmit={handleAdd}>
+      <form onSubmit={(handleAdd, getJob)}>
         <span>Create Addition</span>
         <input
           type="number"
